@@ -1,5 +1,20 @@
 # Change Log
 
+## 2.3.0
+
+### Minor Changes
+
+- feeff80: feat(dynamic-group): 新增插件选项 `cascadeDeleteChildren`（默认 `true`，与历史一致）。设为 `false` 时删除分组仅解除成员关系，子节点保留在画布。
+- feeff80: feat(dynamic-group): 新增插件选项 `disallowEdgeConnectToGroup`（默认 `false`，行为与历史版本一致）。设为 `true` 时禁止手动将边连到/从分组节点；节点 `properties.allowEdgeConnect` 可覆盖。
+- feeff80: fix(dynamic-group): 缩小 resize 时外框不得小于直接子节点占地面积，改为**所有分组默认行为**（不再依赖 `isRestrict: true`）。`isRestrict` 仅限制子节点拖出分组。
+
+### Patch Changes
+
+- feeff80: fix(dynamic-group): 折叠创建虚拟边时清除原边锚点 id，避免 `console.warn` 并改用分组节点锚点重算。
+- feeff80: fix(pool): 修复多选拖拽时 PoolElements 高亮状态不稳定的问题；将 `activeGroup` 升级为 Set，使其与 DynamicGroup 行为对齐，支持多个 Lane 同时高亮；`activeGroups` 改为私有字段。
+- Updated dependencies [feeff80]
+  - @logicflow/core@2.2.4
+
 ## 2.2.3
 
 ### Patch Changes
